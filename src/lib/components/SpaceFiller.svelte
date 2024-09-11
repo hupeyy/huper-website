@@ -6,6 +6,7 @@
     export let href = "#"; // Default href, can be overridden
 
     let gradient = "";
+    let currentWidth = 0;
 
     function generateColorfulGradient(t) {
         const colors = [];
@@ -22,6 +23,11 @@
         gradient = `linear-gradient(to right, ${colors.join(', ')})`;
     }
 
+    function handleResize() {
+        currentWidth = window.innerWidth;
+    }
+
+
     onMount(() => {
         const updateGradient = (t) => {
             generateColorfulGradient(t);
@@ -29,13 +35,19 @@
         };
 
         requestAnimationFrame(updateGradient);
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     });
 </script>
 
 <div id="container" class="connector">
-    <span>{leftText}</span>
+    <span class="text-sm tablet:text-lg">{leftText}</span>
     <div class="gradient-line" style="background-image: {gradient};"></div>
-    <a href={href} target="_blank" class="right-text">{rightText}</a>
+    <a href={href} target="_blank" class="right-text text-sm tablet:text-lg">{rightText}</a>
 </div>
 
 <style>

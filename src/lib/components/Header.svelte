@@ -23,9 +23,9 @@
     <nav class="flex items-center justify-between max-w-screen-lg mx-auto">
       <a href="/" class="text-2xl font-bold">Alex <br> Huper</a>
       <div class="flex space-x-4">
-        <a href="/contact" class="text-lg">contact</a>
-        <a href="/projects" class="text-lg">projects</a>
-        <a href="/resume" class="text-lg">resume</a>
+        <a href="/contact" class="text-base tablet:text-xl">contact</a>
+        <a href="/projects" class="text-base tablet:text-xl">projects</a>
+        <a href="/resume" class="text-base tablet:text-xl">resume</a>
       </div>
     </nav>
 </header>
