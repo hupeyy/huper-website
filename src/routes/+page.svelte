@@ -9,7 +9,7 @@
     ];
 </script>
 
-
+<title>Alex Huper's Website</title>
 <div class="mt-8 mx-auto px-10 max-w-screen-lg">
     <TypingCarousel text={text} />
     <p class="mt-4"> I am a student at the University of Florida studying computer science. </p>

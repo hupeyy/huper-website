@@ -2,9 +2,13 @@
     import SpaceFiller from "$lib/components/SpaceFiller.svelte";
 
 </script>
+
+<title>Resume</title>
 <div class="mt-8 mx-auto px-10 max-w-screen-lg">
     <h1 class="text-2xl font-bold mb-4">My Resume</h1>
     <SpaceFiller />
+
+    <!-- Education -->
     <h2 class="text-xl font-bold my-6">Education</h2>
     <p class="mb-2 text-lg">University of Florida</p>
     <p class="mb-2 text-base">August 2021 - December 2024</p>
@@ -23,28 +27,8 @@
         <li>COP4020 - Compilers</li>
     </ul>
     <SpaceFiller />
-    <h2 class="text-xl font-bold my-6">Experience</h2>
-    <p class="mb-2 text-lg font-bold">Software Engineering Intern</p>
-    <p class="mb-2 text-base">May 2024 - August 2024</p>
-    <p class="mb-2 italic text-sm">Pedestal Holdings</p>
-    <ul class="list-disc list-inside mb-4 space-y-2">
-        <li>Trained and optimized Dalia, an LLM-powered cooking assistant, to plan meals based on dietary needs and answer cooking queries.</li>
-        <li>Modernized CaterMatrix, a legacy software for catering company Gourmet For Good, enhancing performance, efficiency, and user experience.</li>
-        <li>Collaborated with clients to ensure the revamped software met their needs, boosting user satisfaction.</li>
-    </ul>
 
-    <SpaceFiller />
-    <h2 class="text-xl font-bold my-6">Involvement</h2>
-    <p class="mb-2 text-lg font-bold">Academic Programs Coordinator</p>
-    <p class="mb-2 text-base">March 2024 - Present</p>
-    <p class="mb-2 italic text-sm">ColorStack</p>
-    <ul class="list-disc list-inside mb-4 space-y-2">
-        <li>ColorStack is a national organization enhancing opportunities for Black and Latinx students in Computer Science.</li>
-        <li>Grew the UF chapter to 400+ members in its inaugural year, rapidly establishing a strong community presence.</li>
-        <li>Delegated to designing tutorship and mentorship programs to advance members' academic and career growth.</li>
-    </ul>
-
-    <SpaceFiller />
+    <!-- Technical Skills -->
     <h2 class="text-xl font-bold my-6">Technical Skills</h2>
     <p class="mb-2 text-lg font-bold">Languages:</p>
     <ul class="list-disc list-inside mb-8 space-y-1">
@@ -70,6 +54,29 @@
         <li>Figma</li>
         <li>AWS</li>
     </ul>
+    <SpaceFiller />
 
+    <!-- Experience -->
+    <h2 class="text-xl font-bold my-6">Experience</h2>
+    <p class="mb-2 text-lg font-bold">Software Engineering Intern</p>
+    <p class="mb-2 text-base">May 2024 - August 2024</p>
+    <p class="mb-2 italic text-sm">Pedestal Holdings</p>
+    <ul class="list-disc list-inside mb-4 space-y-2">
+        <li>Trained and optimized Dalia, an LLM-powered cooking assistant, to plan meals based on dietary needs and answer cooking queries.</li>
+        <li>Modernized CaterMatrix, a legacy software for catering company Gourmet For Good, enhancing performance, efficiency, and user experience.</li>
+        <li>Collaborated with clients to ensure the revamped software met their needs, boosting user satisfaction.</li>
+    </ul>
+    <SpaceFiller />
+
+    <!-- Involvement -->
+    <h2 class="text-xl font-bold my-6">Involvement</h2>
+    <p class="mb-2 text-lg font-bold">Academic Programs Coordinator</p>
+    <p class="mb-2 text-base">March 2024 - Present</p>
+    <p class="mb-2 italic text-sm">ColorStack</p>
+    <ul class="list-disc list-inside mb-4 space-y-2">
+        <li>ColorStack is a national organization enhancing opportunities for Black and Latinx students in Computer Science.</li>
+        <li>Grew the UF chapter to 400+ members in its inaugural year, rapidly establishing a strong community presence.</li>
+        <li>Delegated to designing tutorship and mentorship programs to advance members' academic and career growth.</li>
+    </ul>
     <SpaceFiller />
 </div>

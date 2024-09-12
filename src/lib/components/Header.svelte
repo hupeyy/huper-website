@@ -1,5 +1,4 @@
 <script>
-    export let title = "Alex Huper's Website";
 
     import { onMount } from 'svelte';
 
@@ -18,7 +17,6 @@
     });
 </script>
 
-<title>{title}</title>
 <header class="bg-gray-100 p-4">
     <nav class="flex items-center justify-between max-w-screen-lg mx-auto">
       <a href="/" class="text-2xl font-bold">Alex <br> Huper</a>

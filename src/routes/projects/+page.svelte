@@ -4,25 +4,25 @@
     let projects = [
         {
             title: 'Blockchain Coin Alert System',
-            stack: 'Python, Telegram API, PostgreSQL',
+            stack: ['Python', 'Telegram API', 'PostgreSQL'],
             description: 'Developed a blockchain monitoring system with real-time alerts for new coins matching user-tracked keywords. Implemented efficient blockchain data retrieval algorithms and a Telegram bot for user notifications.',
             date: 'Present',
         },
         {
             title: 'ColorStack UF Website',
-            stack: 'Svelte, Tailwind, JavaScript',
+            stack: ['Svelte', 'Tailwind', 'JavaScript'],
             description: 'Led the development of the About page and collaborated with developers and design teams to implement dynamic components and responsive design with a 95% design-to-development accuracy rate.',
             date: 'August 2024',
         },
         {
             title: 'Genetic Algorithm in Roblox Studio',
-            stack: 'Lua',
+            stack: ['Lua'],
             description: 'Developed a genetic algorithm in Roblox Studio, enabling AI to evolve and adapt within the game environment using ray casting for environmental perception.',
             date: 'August 2023',
         },
         {
             title: 'AI-Powered Connect 4 with Minimax',
-            stack: 'C++, SFML',
+            stack: ['C++', 'SFML'],
             description: 'Built an AI-driven Connect 4 using Minimax with alpha-beta pruning, improving strategy efficiency by 50%. Designed a user interface to enhance gameplay.',
             date: 'May 2023',
         }
@@ -38,7 +38,7 @@
     onMount(() => {
         const handleWheel = (event) => {
             event.preventDefault();
-            scrollAmount += event.deltaY; // Update the scroll amount based on wheel movement
+            scrollAmount += event.deltaY + event.deltaX; // Update the scroll amount based on wheel movement
             if (!isScrolling) {
                 smoothScroll(); // Start smooth scrolling if not already started
             }
@@ -52,7 +52,8 @@
                 const nodeMiddle = rect.left + rect.width / 2;
 
                 if (Math.abs(nodeMiddle - middle) < rect.width) {
-                    // We are now explicitly setting this as reactive.
+                    projectNodes.forEach((node) => (node.style.backgroundColor = 'black'));
+                    node.style.backgroundColor = '#066375';
                     currentProject = index;
                 }
             });
@@ -86,10 +87,10 @@
     });
 
     // Reactive block to re-render when currentProject changes
-    $: if (currentProject !== undefined) {
-        // This block will re-run whenever currentProject changes.
-        console.log('Current project is now:', projects[currentProject].title);
-    }
+    // $: if (currentProject !== undefined) {
+    //     // This block will re-run whenever currentProject changes.
+    //     console.log('Current project is now:', projects[currentProject].title);
+    // }
 </script>
 
 <style>
@@ -111,8 +112,8 @@
     .project-node {
         width: 30px;
         height: 30px;
-        background-color: #000000;
         border-radius: 50%;
+        background: #066375;
         margin: 0 auto; /* Center the node horizontally */
         top: 50%;
         transform: translateY(-50%);
@@ -121,16 +122,21 @@
     
 </style>
 
+<title>Projects</title>
 <div class=" mx-auto max-w-screen-lg h-[60vh] overflow-hidden">
     <div class="timeline-container" bind:this={timelineContainer} style="--timeline-width: {timelineWidth};">
         <!-- Project container with flexbox layout -->
         <div class="fixed max-w-screen-lg w-full transform flex justify-between gap-x-6 p-6">
             <div class="flex-1">
                 <h2 class="text-base tablet:text-lg laptop:text-xl mb-2">{projects[currentProject].title}</h2>
-                <p class="text-sm tablet:text-base laptop:text-lg">{projects[currentProject].stack}</p>
+                <div class = "flex flex-wrap gap-x-4">
+                    {#each projects[currentProject].stack as stackItem, index}
+                        <p class="px-2 py-1 rounded-lg bg-gray-400 fill-inherit text-xs font-light tablet:text-sm laptop:text-lg">{projects[currentProject].stack[index] + " "}</p>
+                    {/each}
+                </div>
             </div>
             <div class="flex-1">
-                <p class="text-xs tablet:text-sm laptop:text-lg">{projects[currentProject].description}</p>
+                <span class="text-xs tablet:text-lg laptop:text-xl">{projects[currentProject].description}</span>
             </div>
         </div>
 
