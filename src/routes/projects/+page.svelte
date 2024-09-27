@@ -7,24 +7,28 @@
             stack: ['Python', 'Telegram API', 'PostgreSQL'],
             description: 'Developed a blockchain monitoring system with real-time alerts for new coins matching user-tracked keywords. Implemented efficient blockchain data retrieval algorithms and a Telegram bot for user notifications.',
             date: 'Present',
+            link: ''
         },
         {
             title: 'ColorStack UF Website',
             stack: ['Svelte', 'Tailwind', 'JavaScript'],
             description: 'Led the development of the About page and collaborated with developers and design teams to implement dynamic components and responsive design with a 95% design-to-development accuracy rate.',
             date: 'August 2024',
+            link: 'https://uf.colorstack.org'
         },
         {
             title: 'Genetic Algorithm in Roblox Studio',
             stack: ['Lua'],
             description: 'Developed a genetic algorithm in Roblox Studio, enabling AI to evolve and adapt within the game environment using ray casting for environmental perception.',
             date: 'August 2023',
+            link: 'https://github.com/hupeyy/Genetic-Alogrithm---Roblox-Studio'
         },
         {
             title: 'AI-Powered Connect 4 with Minimax',
             stack: ['C++', 'SFML'],
             description: 'Built an AI-driven Connect 4 using Minimax with alpha-beta pruning, improving strategy efficiency by 50%. Designed a user interface to enhance gameplay.',
             date: 'May 2023',
+            link: 'https://github.com/hupeyy/Connect_4'
         }
     ];
 
@@ -55,6 +59,8 @@
                     projectNodes.forEach((node) => (node.style.backgroundColor = 'black'));
                     node.style.backgroundColor = '#066375';
                     currentProject = index;
+                    const projectContainer = document.querySelector('.project-container');
+                    projectContainer.classList.add("animate-slide-in");
                 }
             });
         };
@@ -94,6 +100,9 @@
 </script>
 
 <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
     .timeline-container {
         position: relative;
         width: 100%;
@@ -119,6 +128,27 @@
         transform: translateY(-50%);
     }
 
+    .project-container {
+        @apply fixed max-w-screen-lg w-full transform flex justify-between gap-x-6 p-6
+    }
+
+    @keyframes slide-in {
+        0% {
+            opacity: .5;
+            transform: translateY(50%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-slide-in {
+        animation: slide-in 0.75s forwards;
+    }
+
+    
+
     
 </style>
 
@@ -126,13 +156,24 @@
 <div class=" mx-auto max-w-screen-lg h-[60vh] overflow-hidden">
     <div class="timeline-container" bind:this={timelineContainer} style="--timeline-width: {timelineWidth};">
         <!-- Project container with flexbox layout -->
-        <div class="fixed max-w-screen-lg w-full transform flex justify-between gap-x-6 p-6">
+        <div class="project-container">
             <div class="flex-1">
                 <h2 class="text-base tablet:text-lg laptop:text-xl mb-2">{projects[currentProject].title}</h2>
-                <div class = "flex flex-wrap gap-x-4">
+                <div class = "flex flex-wrap gap-x-4 pt-2">
                     {#each projects[currentProject].stack as stackItem, index}
                         <p class="px-2 py-1 rounded-lg bg-gray-400 fill-inherit text-xs font-light tablet:text-sm laptop:text-lg">{projects[currentProject].stack[index] + " "}</p>
                     {/each}
+                </div>
+                <div class="flex gap-x-4 pt-2">
+                    {#if projects[currentProject].link && projects[currentProject].link.includes('github')}
+                        <a href="{projects[currentProject].link}" target="_blank">
+                            <img src="graphics/github-mark.png" alt="Github logo" class="w-10" />
+                        </a>
+                    {:else if projects[currentProject].link && projects[currentProject].link.includes('https://')}
+                        <a href="{projects[currentProject].link}" target="_blank">
+                            <img src="graphics/www-logo.png" alt="Link logo" class="w-10" />
+                        </a>
+                    {/if}
                 </div>
             </div>
             <div class="flex-1">

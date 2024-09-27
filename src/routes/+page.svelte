@@ -6,6 +6,7 @@
         "student",
         "developer",
         "sudoku solver",
+        "baker"
     ];
 </script>
 
