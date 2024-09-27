@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         jetbrains: ['JetBrains Mono', 'monospace'],
-      },
+      }, 
       screens: {
         'tablet': '640px',
         'laptop': '1024px',
